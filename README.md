@@ -1,3 +1,6 @@
+# 출처
+https://github.com/neolord0/hwpxlib
+위 레포지토리에서 자바 등 버전업된 개발환경과 기타 컴파일 버그를 수정한 버전입니다.
 
 # hwpxlib
 
