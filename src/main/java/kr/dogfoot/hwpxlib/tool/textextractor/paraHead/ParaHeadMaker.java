@@ -19,6 +19,7 @@ public class ParaHeadMaker {
 
     public ParaHeadMaker(HWPXFile hwpxFile) {
         this.hwpxFile = hwpxFile;
+        this.paraNumberForOutline = new ParaNumber(); 
     }
 
     public void startSection() {

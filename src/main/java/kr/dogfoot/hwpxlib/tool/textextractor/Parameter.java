@@ -5,23 +5,27 @@ import kr.dogfoot.hwpxlib.tool.textextractor.comm.TextBuilder;
 import kr.dogfoot.hwpxlib.tool.textextractor.paraHead.ParaHeadMaker;
 
 public class Parameter {
+    private final HWPXFile hwpxFile;
     private final TextExtractMethod textExtractMethod;
     private final boolean insertParaHead;
     private final TextBuilder textBuilder;
     private ParaHeadMaker paraHeadMaker;
     private ObjectPosition startPosition;
     private ObjectPosition endPosition;
+    private TextMarks textMarks;
 
     public Parameter(HWPXFile hwpxFile,
                      TextExtractMethod textExtractMethod,
                      boolean insertParaHead,
                      TextMarks textMarks) {
+        this.hwpxFile = hwpxFile;
         this.textExtractMethod = textExtractMethod;
         this.insertParaHead = insertParaHead;
         if (insertParaHead) {
             paraHeadMaker = new ParaHeadMaker(hwpxFile);
         }
         this.textBuilder = new TextBuilder(textMarks);
+        this.textMarks = textMarks; 
 
         startPosition = null;
         endPosition = null;
@@ -33,6 +37,7 @@ public class Parameter {
                      TextMarks textMarks,
                      ObjectPosition startPosition,
                      ObjectPosition endPosition) {
+        this.hwpxFile = hwpxFile;
         this.textExtractMethod = textExtractMethod;
         this.insertParaHead = insertParaHead;
         if (insertParaHead) {
@@ -41,14 +46,23 @@ public class Parameter {
         this.textBuilder = new TextBuilder(textMarks);
         this.startPosition = startPosition;
         this.endPosition = endPosition;
+        this.textMarks = textMarks; 
     }
 
     public TextExtractMethod textExtractMethod() {
         return textExtractMethod;
     }
 
+    public HWPXFile hwpxFile() {
+        return hwpxFile;
+    }
+
     public boolean insertParaHead() {
         return insertParaHead;
+    }
+
+    public TextMarks textMarks() {
+        return textMarks;
     }
 
     public TextBuilder textBuilder() {
